@@ -6,7 +6,7 @@ public class BonusServiceTest {
     void shouldCalculateForRegisteredAndUnderLimit() {
         BonusService service = new BonusService();
 
-        long amount = 1000_30;
+        long amount = 1000;
         boolean registered = true;
         long expected = 30;
 
@@ -19,9 +19,9 @@ public class BonusServiceTest {
     void shouldCalculateForRegisteredAndOverLimit() {
         BonusService service = new BonusService();
 
-        long amount = 1_000_000_30;
+        long amount = 5_000;
         boolean registered = true;
-        long expected = 500;
+        long expected = 150;
 
         long actual = service.calculate(amount, registered);
 
@@ -32,9 +32,9 @@ public class BonusServiceTest {
     void shouldCalculateForUnregisteredAndUnderLimit() {
         BonusService service = new BonusService();
 
-        long amount = 1000_30;
+        long amount = 344;
         boolean registered = false;
-        long expected = 10;
+        long expected = 3;
 
         long actual = service.calculate(amount, registered);
 
@@ -45,7 +45,7 @@ public class BonusServiceTest {
     void shouldCalculateForUnregisteredAndOverLimit() {
         BonusService service = new BonusService();
 
-        long amount = 1_000_000_30;
+        long amount = 1_000_000;
         boolean registered = false;
         long expected = 500;
 
